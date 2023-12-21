@@ -15,4 +15,17 @@ public class Activity {
         this.Standing = Standing;
     }
 
+    public String getName() {
+        return this.Name;
+    }
+    public void setName(String name) {
+        this.Name = name;
+    }
+    public int getGrade() {
+        return this.Grade;
+    }
+    public void setGrade(int grade) {
+        this.Grade = grade;
+    }
+
 }
