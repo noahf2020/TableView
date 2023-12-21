@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tableview.HelloController">
    <children>
-      <TableView layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Name" />
-          <TableColumn prefWidth="74.0" text="Grade" />
-            <TableColumn prefWidth="181.0" text="Num Of Clubs/Sports" />
-            <TableColumn minWidth="0.0" prefWidth="113.0" text="GPA" />
-            <TableColumn minWidth="0.0" prefWidth="141.0" text="In danger of graduating" />
-        </columns>
-      </TableView>
+      <TableView id="myt" fx:id="myTable" layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" />
    </children>
 </Pane>
