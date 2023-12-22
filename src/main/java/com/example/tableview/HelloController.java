@@ -12,7 +12,7 @@ public class HelloController {
     public TableView  myTable;
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        welcomeText.setText("Table View!");
     }
 
     public void initialize(){
@@ -20,8 +20,8 @@ public class HelloController {
         name.setCellValueFactory(new PropertyValueFactory<Activity, String>("Name"));
         TableColumn grade = new TableColumn<Activity, String>("Grade");
         grade.setCellValueFactory(new PropertyValueFactory<Activity, String>("Grade"));
-        TableColumn numofSports = new TableColumn<Activity, String>("Num of Sports");
-        numofSports.setCellValueFactory(new PropertyValueFactory<Activity, String>("Num of Sports"));
+        TableColumn numofSports = new TableColumn<Activity, String>("Num of sports/activities");
+        numofSports.setCellValueFactory(new PropertyValueFactory<Activity, String>("Sports"));
         TableColumn GPA = new TableColumn<Activity, String>("GPA");
         GPA.setCellValueFactory(new PropertyValueFactory<Activity, String>("GPA"));
         TableColumn Standing = new TableColumn<Activity, String>("Standing");
