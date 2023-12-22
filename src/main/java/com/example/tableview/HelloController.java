@@ -46,4 +46,15 @@ public class HelloController {
 
     }
 
+        public void enterData(){
+
+                int RealGrade = Integer.parseInt(grade.getText());
+                int RealSports = Integer.parseInt(sports.getText());
+                float RealGPA = Float.parseFloat(gpa.getText());
+
+            myTable.getItems().add(new Activity(name.getText(), RealGrade,RealSports, RealGPA, true));
+
+
+
+        }
 }

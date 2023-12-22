@@ -34,7 +34,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GPA" wrappingWidth="59.21630859375" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="# of sports/activiteis " wrappingWidth="124.21630859375" GridPane.rowIndex="2" />
-            <Button fx:id="enter" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="enter" mnemonicParsing="false" onAction="#enterData" prefHeight="25.0" prefWidth="139.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>
