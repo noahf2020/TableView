@@ -40,7 +40,7 @@ public class HelloController {
 
 
 
-
+        myTable.getSortOrder().add(name);
         myTable.getItems().add(new Activity("Eli",9,5, 4.2, true));
         myTable.getItems().add(new Activity("Eli",9,5, 4.2, true));
 
