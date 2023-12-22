@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-
+<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tableview.HelloController">
    <children>
@@ -14,12 +16,26 @@
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
+            <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="52.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="52.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <TextField fx:id="sports" GridPane.rowIndex="3" />
+            <TextField fx:id="name" GridPane.rowIndex="1" />
+            <TextField fx:id="gpa" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="grade" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grade" GridPane.columnIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GPA" wrappingWidth="59.21630859375" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="# of sports/activiteis " wrappingWidth="124.21630859375" GridPane.rowIndex="2" />
+            <Button fx:id="enter" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Enter" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         </children>
       </GridPane>
    </children>
 </Pane>

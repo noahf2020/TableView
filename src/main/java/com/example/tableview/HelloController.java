@@ -1,15 +1,19 @@
 package com.example.tableview;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class HelloController {
     @FXML
     private Label welcomeText;
     public TableView  myTable;
+    public TextField name;
+    public TextField grade;
+    public TextField gpa;
+    public TextField sports;
+    public Button enter;
+
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Table View!");
