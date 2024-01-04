@@ -48,28 +48,12 @@ public class HelloController {
         myTable.getSortOrder().add(name);
         myTable.getSortOrder().add(name);
 
-        FileInputStream inputStream = new FileInputStream("data");
-        ObjectInputStream objInputStream = new ObjectInputStream(inputStream);
 
-        // Read the list size
-        int numOfSavedObjects = objInputStream.readInt();
-
-        List<Activity> activities = new ArrayList<>();
-
-        // Read each Activity object
-        for (int i = 0; i < numOfSavedObjects; i++) {
-            Activity activity = (Activity) objInputStream.readObject();
-            activities.add(activity);
+        try {
+            restoreData();
+        } catch (Exception ex) {
+            // do nothing
         }
-
-        // Close the streams
-        objInputStream.close();
-        inputStream.close();
-
-        // Add the loaded activities to the table
-        myTable.getItems().addAll(activities);
-
-
     }
 
         public void enterData(){
@@ -100,5 +84,27 @@ public class HelloController {
             outputStream.close();
         }
 
+        void restoreData() throws Exception {
+            FileInputStream inputStream = new FileInputStream("data");
+            ObjectInputStream objInputStream = new ObjectInputStream(inputStream);
 
+            // Read the list size
+            int numOfSavedObjects = objInputStream.readInt();
+
+            List<Activity> activities = new ArrayList<>();
+
+            // Read each Activity object
+            for (int i = 0; i < numOfSavedObjects; i++) {
+                Activity activity = (Activity) objInputStream.readObject();
+                activities.add(activity);
+            }
+
+            // Close the streams
+            objInputStream.close();
+            inputStream.close();
+
+            // Add the loaded activities to the table
+            myTable.getItems().addAll(activities);
+
+        }
 }
