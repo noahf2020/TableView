@@ -1,6 +1,8 @@
 package com.example.tableview;
 
-public class Activity {
+import java.io.Serializable;
+
+public class Activity implements Serializable {
     private String Name;
     private int Grade;
     private int Sports;
@@ -36,17 +38,17 @@ public class Activity {
     public double getGPA(){
         return this.GPA;
     }
-
     public void setGPA(double gpa){
         this.GPA = gpa;
     }
-
     public boolean getStanding(){
         return this.Standing;
     }
-
     public void setStanding(boolean standing){
         this.Standing = standing;
     }
 
+    public String toString(){
+        return  Name + Grade +  Sports+ GPA +  Standing;
+    }
 }

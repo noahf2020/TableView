@@ -1,8 +1,13 @@
 package com.example.tableview;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HelloController {
     @FXML
@@ -19,7 +24,7 @@ public class HelloController {
         welcomeText.setText("Table View!");
     }
 
-    public void initialize(){
+    public void initialize() throws Exception{
         TableColumn name = new TableColumn<Activity, String>(" Name");
         name.setCellValueFactory(new PropertyValueFactory<Activity, String>("Name"));
         TableColumn grade = new TableColumn<Activity, String>("Grade");
@@ -41,20 +46,59 @@ public class HelloController {
 
 
         myTable.getSortOrder().add(name);
-        myTable.getItems().add(new Activity("Eli",9,5, 4.2, true));
-        myTable.getItems().add(new Activity("Eli",9,5, 4.2, true));
+        myTable.getSortOrder().add(name);
+
+        FileInputStream inputStream = new FileInputStream("data");
+        ObjectInputStream objInputStream = new ObjectInputStream(inputStream);
+
+        // Read the list size
+        int numOfSavedObjects = objInputStream.readInt();
+
+        List<Activity> activities = new ArrayList<>();
+
+        // Read each Activity object
+        for (int i = 0; i < numOfSavedObjects; i++) {
+            Activity activity = (Activity) objInputStream.readObject();
+            activities.add(activity);
+        }
+
+        // Close the streams
+        objInputStream.close();
+        inputStream.close();
+
+        // Add the loaded activities to the table
+        myTable.getItems().addAll(activities);
+
 
     }
 
         public void enterData(){
-
                 int RealGrade = Integer.parseInt(grade.getText());
                 int RealSports = Integer.parseInt(sports.getText());
                 float RealGPA = Float.parseFloat(gpa.getText());
-
-            myTable.getItems().add(new Activity(name.getText(), RealGrade,RealSports, RealGPA, true));
-
-
+               myTable.getItems().add(new Activity(name.getText(), RealGrade,RealSports, RealGPA, true));
 
         }
+
+        public void SaveData() throws Exception {
+            FileOutputStream outputStream = new FileOutputStream("data");
+            ObjectOutputStream objOutputStream = new ObjectOutputStream(outputStream);
+
+            ObservableList<Activity> activities = myTable.getItems();
+
+            // Write the number of saved objects
+            objOutputStream.writeInt(activities.size());
+
+            // Write each Activity object
+            for (Activity activity : activities) {
+                objOutputStream.writeObject(activity);
+            }
+
+            // Close the streams
+            objOutputStream.flush();
+            objOutputStream.close();
+            outputStream.close();
+        }
+
+
 }
